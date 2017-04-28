@@ -1,0 +1,6 @@
+include "applications/billing"
+include "applications/ums"
+include "components/billing"
+include "components/payments"
+include "components/subscriptions"
+include "components/email"
