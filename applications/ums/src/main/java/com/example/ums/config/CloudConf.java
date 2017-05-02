@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 import java.net.URI;
 
@@ -17,11 +18,12 @@ import java.net.URI;
 @Configuration
 @Profile("cloud")
 @EnableDiscoveryClient
+@EnableCircuitBreaker
 public class CloudConf {
 
     @Bean
     public BillingClient billingClient() {
-        URI uri = UriComponentsBuilder.fromUriString("//bulling-service/reoccuringPayments")
+        URI uri = UriComponentsBuilder.fromUriString("//BULLING-SERVICE/reoccuringPayments")
                 .build()
                 .toUri();
 

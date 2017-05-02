@@ -2,8 +2,9 @@ applications:
 - name: ums-service
   instances: 1
   memory: 512M
-  path: ./build/fortune-service-0.0.1-SNAPSHOT.jar
+  path: ./build/libs/ums-0.0.1-SNAPSHOT.jar
   services:
     #- config-server
     - service-registry
+    - circuit-breaker-dashboard
   
