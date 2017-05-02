@@ -1,16 +1,17 @@
 package com.example.billing;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
 public class BillingClient {
 
-    private final RestTemplate restTemplate;
+    @Autowired
+    private  RestTemplate restTemplate;
 
     private final String url;
 
     public BillingClient(String url) {
         this.url = url;
-        restTemplate = new RestTemplate();
     }
 
     public void billUser(String userId, Integer amount) {

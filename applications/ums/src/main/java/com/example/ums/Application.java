@@ -11,8 +11,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @Slf4j
@@ -20,7 +22,6 @@ public class Application implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
 
     @Autowired
     NamedParameterJdbcTemplate datasource;
@@ -41,8 +42,11 @@ public class Application implements CommandLineRunner {
         return new SubscriptionRepository(datasource);
     }
 
+
     @Bean
-    public BillingClient billingClient(@Value("${billingEndpoint}") String billingEndpoint) {
-        return new BillingClient(billingEndpoint);
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
+
 }
