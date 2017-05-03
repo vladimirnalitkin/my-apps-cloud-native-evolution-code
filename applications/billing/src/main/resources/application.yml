@@ -1,13 +1,3 @@
-server:
-  port: 8081
-
 spring:
   application:
     name: bulling-service
-  cloud:
-    services:
-      registrationMethod: route
-
-security:
-  basic:
-    enabled: false

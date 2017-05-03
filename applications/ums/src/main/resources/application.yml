@@ -1,15 +1,3 @@
-server:
-  port: 8080
-
-billingEndpoint: http://localhost:8081/reoccuringPayments
-
 spring:
   application:
     name: ums-service
-  cloud:
-    services:
-      registrationMethod: route
-
-security:
-  basic:
-    enabled: false

@@ -1,6 +1,7 @@
 package com.example.ums.config;
 
 import com.example.billing.BillingClient;
+import com.example.billing.HttpBillingClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Profile;
 public class LocalConf {
     @Bean
     public BillingClient billingClient(@Value("${billingEndpoint}") String billingEndpoint) {
-        return new BillingClient(billingEndpoint);
+        return new HttpBillingClient(billingEndpoint);
     }
 
 

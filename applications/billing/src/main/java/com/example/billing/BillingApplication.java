@@ -2,6 +2,8 @@ package com.example.billing;
 
 import com.example.payments.Gateway;
 import com.example.payments.RecurlyGateway;
+import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,4 +23,5 @@ public class BillingApplication {
 	public Gateway gateway(){
 		return new RecurlyGateway();
 	}
+
 }
